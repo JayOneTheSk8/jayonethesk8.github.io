@@ -1,4 +1,4 @@
-const classCache = {};
+let miniBar, navbar;
 
 function findDirection(e) {
   let direction = e.wheelDelta > 0 ? 'up' : 'down';
@@ -7,7 +7,6 @@ function findDirection(e) {
 
 function changeNavbar(e) {
   debugger
-  const nav = $j('.navbar');
   // if (nav) {
   //
   // }
@@ -15,3 +14,8 @@ function changeNavbar(e) {
 
 window.addEventListener("wheel", findDirection);
 window.addEventListener("resize", changeNavbar);
+
+document.addEventListener("DOMContentLoaded", (e) => {
+  miniBar = $j('.navbar-reduced');
+  navbar = $j('.navbar');
+});
