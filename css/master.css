@@ -67,3 +67,21 @@ body {
   width: 25px;
   margin: 4px 0px;
 }
+
+.dropdown-links {
+  position: fixed;
+  margin-top: 125px;
+  padding: 20px 0px;
+  color: white;
+  background: black;
+  width: 100%;
+  font-size: 18px;
+  font-weight: 600;
+  flex-wrap: wrap;
+  /* cannot put display in here */
+}
+
+.dropdown-link {
+  display: inline-block;
+  margin: 5px 0px 5px 20px;
+}
