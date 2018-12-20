@@ -1,9 +1,9 @@
 let miniBar, navbar;
 
-function flip(show, hide) {
+const flip = (show, hide) => {
   show.show();
   hide.hide();
-}
+};
 
 function findDirection(e) {
   let direction = e.wheelDelta > 0 ? 'up' : 'down';
@@ -11,11 +11,11 @@ function findDirection(e) {
 }
 
 function changeNavbar(e) {
-  console.log(navbar.width());
-  // debugger
-  // if (nav) {
-  //
-  // }
+  if (navbar.width() < 800 && navbar.nodes[0].className !== "hidden") {
+    flip(miniBar, navbar);
+  } else if (miniBar.width() > 800) {
+    flip(navbar, miniBar);
+  }
 }
 
 window.addEventListener("wheel", findDirection);
