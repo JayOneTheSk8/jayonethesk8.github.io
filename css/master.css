@@ -4,6 +4,7 @@ body {
   background-size: cover;
   background-attachment: fixed;
   font-family: sans-serif;
+  overflow: hidden;
 }
 
 .hidden {
@@ -16,56 +17,10 @@ body {
   height: 100vh;
 }
 
-.navbar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  background-color: black;
-  width: 100%;
-  height: 42px;
-}
-
-.section-links {
-  display: flex;
-}
-
-.section-link {
-  margin: 0px 20px;
-  font-size: 20px;
-  font-weight: bolder;
-  color: white;
-}
-
-.navbar-reduced {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: fixed;
-  background-color: black;
-  width: 100%;
-  min-width: 230px;
-  height: 42px;
-}
-
-.name {
-  font-size: 25px;
-  color: white;
-  font-weight: 600;
-  margin-left: 20px;
-}
-
-.hamburger-icon {
-  margin-right: 20px;
-}
-.hamburger-icon:hover {
-  cursor: pointer;
-}
-
-.hamburger-line {
-  border: 2px white solid;
-  width: 25px;
-  margin: 4px 0px;
+/* NAVBAR */
+.dropdown-link {
+  display: inline-block;
+  margin: 5px 0px 5px 20px;
 }
 
 .dropdown-links {
@@ -81,7 +36,67 @@ body {
   /* cannot put display in here */
 }
 
-.dropdown-link {
-  display: inline-block;
-  margin: 5px 0px 5px 20px;
+.hamburger-icon {
+  margin-right: 20px;
+}
+
+.hamburger-icon:hover {
+  cursor: pointer;
+}
+
+.hamburger-line {
+  border: 2px white solid;
+  width: 25px;
+  margin: 4px 0px;
+}
+
+.name {
+  font-size: 25px;
+  color: white;
+  font-weight: 600;
+  margin-left: 20px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  background-color: black;
+  width: 100%;
+  height: 42px;
+}
+
+.navbar-reduced {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  background-color: black;
+  width: 100%;
+  min-width: 230px;
+  height: 42px;
+}
+
+.section-link {
+  margin: 0px 20px;
+  font-size: 20px;
+  font-weight: bolder;
+  color: white;
+}
+
+.section-links {
+  display: flex;
+}
+
+/* INFO SCREENS */
+
+.info-screen {
+  position: absolute;
+  margin-top: 42px;
+  width: 100%;
+  height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
