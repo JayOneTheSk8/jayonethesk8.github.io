@@ -46,7 +46,9 @@ document.addEventListener("DOMContentLoaded", (e) => {
   hamburger = $j('.hamburger-icon');
   dropdownMenu = $j('.dropdown-links');
   overlay = $j('.screen-overlay');
-  overlay.on('click', closeDropdown)
+  infoScreens = $j('.info-screens');
+  overlay.on('click', closeDropdown);
+  infoScreens.on('click', closeDropdown);
   hamburger.on('click', toggleDropdown);
   if (navbar.width() < 800) {
     flip(miniBar, navbar);
