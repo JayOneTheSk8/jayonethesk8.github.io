@@ -6,50 +6,55 @@
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/master.css">
-    <script src="https://cdn.jsdelivr.net/gh/jayonethesk8/jaysQuery/dist/main.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/gh/jayonethesk8/jaysQuery/dist/main.js"></script> -->
+    <script type="text/javascript" src='../jaysQuery/dist/main.js'></script> <!-- LOCAL -->
     <script type="text/javascript" src="src/navbar.js"></script>
   </head>
   <body>
-    <nav class='navbar'>
-      <ul class='section-links'>
-        <li class="section-link">HOME</li>
-        <li class="section-link">ABOUT</li>
-        <li class="section-link">SKILLS</li>
-        <li class="section-link">PORTFOLIO</li>
-        <li class="section-link">EDUCATION</li>
-        <li class="section-link">CONTACT</li>
-      </ul>
-    </nav>
-    <nav class='navbar-reduced'>
-      <p class="name">Justin Cox</p>
-      <figure class="hamburger-icon">
-        <div class="hamburger-line"></div>
-        <div class="hamburger-line"></div>
-        <div class="hamburger-line"></div>
-      </figure>
-      <ul class='dropdown-links hidden'>
-        <div class="drop-list items">
-          <li class="drop-list-item">
-            <a class="dropdown-link" href="#home">HOME</a>
-          </li>
-          <li class="drop-list-item">
-            <a class="dropdown-link" href="#about">ABOUT</a>
-          </li>
-          <li class="drop-list-item">
-            <a class="dropdown-link" href="#skills">SKILLS</a>
-          </li>
-          <li class="drop-list-item">
-            <a class="dropdown-link" href="#portfolio">PORTFOLIO</a>
-          </li>
-          <li class="drop-list-item">
-            <a class="dropdown-link" href="#education">EDUCATION</a>
-          </li>
-          <li class="drop-list-item">
-            <a class="dropdown-link" href="#contact">CONTACT</a>
-          </li>
-        </div>
-      </ul>
-    </nav>
+    <header className="navbars">
+      <nav class='navbar'>
+        <ul class='section-links'>
+          <li class="section-link">HOME</li>
+          <li class="section-link">ABOUT</li>
+          <li class="section-link">SKILLS</li>
+          <li class="section-link">PORTFOLIO</li>
+          <li class="section-link">EDUCATION</li>
+          <li class="section-link">CONTACT</li>
+        </ul>
+      </nav>
+
+      <nav class='navbar-reduced'>
+        <p class="name">Justin Cox</p>
+        <figure class="hamburger-icon">
+          <div class="hamburger-line"></div>
+          <div class="hamburger-line"></div>
+          <div class="hamburger-line"></div>
+        </figure>
+        <ul class='dropdown-links hidden'>
+          <div class="drop-list items">
+            <li class="drop-list-item">
+              <a class="dropdown-link" href="#home">HOME</a>
+            </li>
+            <li class="drop-list-item">
+              <a class="dropdown-link" href="#about">ABOUT</a>
+            </li>
+            <li class="drop-list-item">
+              <a class="dropdown-link" href="#skills">SKILLS</a>
+            </li>
+            <li class="drop-list-item">
+              <a class="dropdown-link" href="#portfolio">PORTFOLIO</a>
+            </li>
+            <li class="drop-list-item">
+              <a class="dropdown-link" href="#education">EDUCATION</a>
+            </li>
+            <li class="drop-list-item">
+              <a class="dropdown-link" href="#contact">CONTACT</a>
+            </li>
+          </div>
+        </ul>
+      </nav>
+    </header>
+
     <div class="screen-overlay"></div>
   </body>
 </html>
