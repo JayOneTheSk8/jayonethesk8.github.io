@@ -1,4 +1,4 @@
-let miniBar, navbar, hamburger, dropdownMenu;
+let miniBar, navbar, hamburger, dropdownMenu, overlay;
 let dropdown = 'closed';
 
 const flip = (show, hide) => {
@@ -6,17 +6,24 @@ const flip = (show, hide) => {
   hide.hide();
 };
 
-function findDirection(e) {
-  let direction = e.wheelDelta > 0 ? 'up' : 'down';
-  console.log(direction);
-}
-
 function changeNavbar(e) {
   if (navbar.width() < 800 && navbar.nodes[0].className !== "hidden") {
     flip(miniBar, navbar);
   } else if (miniBar.width() > 800) {
     flip(navbar, miniBar);
   }
+}
+
+function closeDropdown(e) {
+  if (dropdown == "open") {
+    dropdownMenu.addClass('hidden');
+    dropdown = "closed"
+  }
+}
+
+function findDirection(e) { //UFINISHED
+  let direction = e.wheelDelta > 0 ? 'up' : 'down';
+  console.log(direction);
 }
 
 function toggleDropdown(e) {
@@ -29,7 +36,7 @@ function toggleDropdown(e) {
   }
 }
 
-window.addEventListener("wheel", findDirection);
+window.addEventListener("wheel", findDirection); //UFINISHED
 window.addEventListener("resize", changeNavbar);
 
 
@@ -38,6 +45,8 @@ document.addEventListener("DOMContentLoaded", (e) => {
   navbar = $j('.navbar');
   hamburger = $j('.hamburger-icon');
   dropdownMenu = $j('.dropdown-links');
+  overlay = $j('.screen-overlay');
+  overlay.on('click', closeDropdown)
   hamburger.on('click', toggleDropdown);
   if (navbar.width() < 800) {
     flip(miniBar, navbar);
