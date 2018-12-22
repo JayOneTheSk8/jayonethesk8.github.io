@@ -96,7 +96,7 @@ body {
 /* INFO SCREENS */
 
 .info {
-  width: 95%;
+  margin: 0px 1.5%;
   height: 575px;
   background: #83bc83;
   padding: 30px;
@@ -141,7 +141,7 @@ body {
   margin-left: 40px;
 }
 
-@media screen and (max-width: 1355px) {
+@media screen and (max-width: 1600px) {
   .profile-picture {
     width: 560px;
     border-radius: 305px;
