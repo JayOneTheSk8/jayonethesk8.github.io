@@ -22,7 +22,7 @@ function closeDropdown(e) {
 }
 
 function findDirection(e) { //UFINISHED
-  let direction = e.wheelDelta > 0 ? 'up' : 'down';
+  let direction = e.deltaX > 0 ? 'right' : 'left';
   console.log(direction);
 }
 
