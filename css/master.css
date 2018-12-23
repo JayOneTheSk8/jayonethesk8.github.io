@@ -229,6 +229,13 @@ body {
     justify-content: space-between;
     min-width: 650px;
   }
+
+  .to-list {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 0px;
+  }
 }
 
 @media screen and (max-width: 1260px) {
