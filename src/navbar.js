@@ -35,6 +35,11 @@ const flip = (show, hide) => {
   hide.hide();
 };
 
+function alterHtml(passedTitle, passedPara) {
+  title.html(passedTitle);
+  paragraph.html(passedPara);
+}
+
 function changeNavbar(e) {
   if (navbar.width() < 800 && navbar.nodes[0].className !== "hidden") {
     flip(miniBar, navbar);
@@ -52,19 +57,19 @@ function closeDropdown(e) {
 
 function changeInfo(e) {
   let direction = e.deltaX > 0 ? 'right' : 'left';
-  if (direction === 'left') {
-
-  } else {
-
-  }
+  // if (direction === 'left') {
+  //
+  // } else {
+  //
+  // }
 }
 
 function switchInfo(e) {
   switch (e.target.id) {
     case 'to-about':
-      title.html(aboutMeTitle);
-      paragraph.html(aboutPara);
+      alterHtml(aboutMeTitle, aboutPara);
       lastChecked = about;
+      return;
     case 'to-skills':
       console.log('to-skills');
       lastChecked = skills;
