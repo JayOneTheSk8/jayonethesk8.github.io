@@ -11,13 +11,13 @@ Array.prototype.rotate = function(times = 1) {
 
 let miniBar, navbar, hamburger, dropdownMenu, overlay, about, skills, portfolio,
   education, contact, title, paragraph, lastChecked, homeLinks, aboutLinks, skillsLinks,
-  portfolioLinks, educationLinks, contactLinks;
+  portfolioLinks, educationLinks, contactLinks, goLinks;
 
 let dropdown = 'closed';
 let transitioning = 'false';
 
 const homeTitle = "JUSTIN COX";
-const homePara = "Text here";
+const homePara = "<ul class='to-list'><li class='to-section'><p class='inline'>ABOUT</p></li><li class='to-section'><p class='inline'>SKILLS</p></li><li class='to-section'><p class='inline'>PORTFOLIO</p></li><li class='to-section'><p class='inline'>EDUCATION</p></li><li class='to-section'><p class='inline'>CONTACT</p></li></ul>";
 
 const aboutMeTitle = "ABOUT ME";
 const aboutMePara = "I am a software engineer based in New York City with experience working with JavaScript, Ruby, Rails, React + Redux, SQL, HTML/CSS, and Git. My current hobbies include playing fighting games and puzzle solving. I fell in love with programming after a coworker noticed my passion for problem solving. This infatuation led me on a career path to become a software engineer. After a full year of studying, I was accepted into App Academy, a 1000-hour intensive coding bootcamp with an emphasis on test-driven development, scalability, object-oriented programming, coding style, and security. <br><br> The biggest draw to programming for me is having the ability to turn a blank text file into whatever you want from a stable and scalable algorithm to an elegant and functional landing page. I aim to, not only expand my knowledge of programming, but to use my knowledge and capabilities for the golbal benefit.";
@@ -72,31 +72,39 @@ function changeTab(e) {
   switch (e.target.innerText) {
     case "HOME":
       alterHtml(homeTitle, homePara);
+      info.addClass('reverse-info');
       radioButtons.hide();
+      goLinks = $j('.inline');
+      goLinks.on('click', changeTab);
       return;
     case "ABOUT":
       alterHtml(aboutMeTitle, aboutMePara);
       checkButton(about);
+      info.removeClass('reverse-info');
       radioButtons.show();
       return;
     case "SKILLS":
       alterHtml(skillsTitle, skillsPara);
       checkButton(skills);
+      info.removeClass('reverse-info');
       radioButtons.show();
       return;
     case "PORTFOLIO":
       alterHtml(portfolioTitle, portfolioPara);
       checkButton(portfolio);
+      info.removeClass('reverse-info');
       radioButtons.show();
       return;
     case "EDUCATION":
       alterHtml(educationTitle, educationPara);
       checkButton(education);
+      info.removeClass('reverse-info');
       radioButtons.show();
       return;
     case "CONTACT":
       alterHtml(contactTitle, contactPara);
       checkButton(contact);
+      info.removeClass('reverse-info');
       radioButtons.show();
       return;
     default:
@@ -245,6 +253,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
   education = $j('#to-education');
   contact = $j('#to-contact');
   links = $j('.section-link, .dropdown-link');
+  info = $j('.info');
   title = $j('.info-header');
   paragraph = $j('.info-paragraph');
   links.on('click', changeTab);
@@ -257,4 +266,9 @@ document.addEventListener("DOMContentLoaded", (e) => {
   } else {
     flip(navbar, miniBar);
   }
+  alterHtml(homeTitle, homePara);
+  info.addClass('reverse-info');
+  radioButtons.hide();
+  goLinks = $j('.inline');
+  goLinks.on('click', changeTab);
 });

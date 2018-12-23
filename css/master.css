@@ -145,6 +145,19 @@ body {
   justify-content: center;
 }
 
+.inline {
+  display: inline-block;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.inline:hover {
+  display: inline-block;
+  cursor: pointer;
+  padding: 5px;
+  text-decoration: underline;
+}
+
 .paragraph {
   width: 44%;
   margin-left: 40px;
@@ -162,9 +175,29 @@ body {
   margin-left: 40px;
 }
 
+.reverse-info {
+  flex-direction: row-reverse;
+  position: relative;
+  top: -10px;
+}
+
 .switch-info {
   position: relative;
   top: 13px;
+}
+
+.to-list {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: -30px;
+}
+
+.to-section {
+  margin: 22px 0px;
+  font-size: 26px;
+  font-weight: 600;
+  display: inline-block;
 }
 
 @media screen and (max-width: 1600px) {
