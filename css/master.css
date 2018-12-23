@@ -84,11 +84,12 @@ body {
 }
 
 .section-link {
-  margin: 0px 20px;
+  margin: 0px 15px;
   font-size: 20px;
   font-weight: bolder;
   color: white;
   cursor: pointer;
+  padding: 10px 5px;
 }
 
 .section-links {
