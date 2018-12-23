@@ -16,7 +16,7 @@ let miniBar, navbar, hamburger, dropdownMenu, overlay, about, skills, portfolio,
 let dropdown = 'closed';
 let transitioning = 'false';
 
-const homeTitle = "HOMEPAGE";
+const homeTitle = "JUSTIN COX";
 const homePara = "Text here";
 
 const aboutMeTitle = "ABOUT ME";
