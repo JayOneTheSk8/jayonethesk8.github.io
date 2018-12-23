@@ -16,7 +16,7 @@ let dropdown = 'closed';
 let transitioning = 'false';
 
 const aboutMeTitle = "ABOUT ME";
-const aboutPara = "I am a software engineer based in New York City with experience working with JavaScript, Ruby, Rails, React + Redux, SQL, HTML/CSS, and Git. My current hobbies include playing fighting games and puzzle solving. I fell in love with programming after a coworker noticed my passion for problem solving. This infatuation led me on a career path to become a software engineer. After a full year of studying, I was accepted into App Academy, a 1000-hour intensive coding bootcamp with an emphasis on test-driven development, scalability, object-oriented programming, coding style, and security. <br><br> The biggest draw to programming for me is having the ability to turn a blank text file into whatever you want from a stable and scalable algorithm to an elegant and functional landing page. I aim to, not only expand my knowledge of programming, but to use my knowledge and capabilities for the golbal benefit.";
+const aboutMePara = "I am a software engineer based in New York City with experience working with JavaScript, Ruby, Rails, React + Redux, SQL, HTML/CSS, and Git. My current hobbies include playing fighting games and puzzle solving. I fell in love with programming after a coworker noticed my passion for problem solving. This infatuation led me on a career path to become a software engineer. After a full year of studying, I was accepted into App Academy, a 1000-hour intensive coding bootcamp with an emphasis on test-driven development, scalability, object-oriented programming, coding style, and security. <br><br> The biggest draw to programming for me is having the ability to turn a blank text file into whatever you want from a stable and scalable algorithm to an elegant and functional landing page. I aim to, not only expand my knowledge of programming, but to use my knowledge and capabilities for the golbal benefit.";
 
 const skillsTitle = "SKILLS";
 const skillsPara = "Skills Info Here";
@@ -67,23 +67,23 @@ function changeInfo(e) {
 function switchInfo(e) {
   switch (e.target.id) {
     case 'to-about':
-      alterHtml(aboutMeTitle, aboutPara);
+      alterHtml(aboutMeTitle, aboutMePara);
       lastChecked = about;
       return;
     case 'to-skills':
-      console.log('to-skills');
+      alterHtml(skillsTitle, skillsPara);
       lastChecked = skills;
       return;
     case 'to-portfolio':
-      console.log('to-portfolio');
+      alterHtml(portfolioTitle, portfolioPara);
       lastChecked = portfolio;
       return;
     case 'to-education':
-      console.log('to-education');
+      alterHtml(educationTitle, educationPara);
       lastChecked = education;
       return;
     case 'to-contact':
-      console.log('to-contact');
+      alterHtml(contactTitle, contactPara);
       lastChecked = contact;
       return;
     default:
