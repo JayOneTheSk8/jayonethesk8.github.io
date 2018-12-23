@@ -23,6 +23,7 @@ body {
 .dropdown-link {
   display: inline-block;
   margin: 5px 0px 5px 20px;
+  cursor: pointer;
 }
 
 .dropdown-links {
@@ -86,7 +87,8 @@ body {
   margin: 0px 20px;
   font-size: 20px;
   font-weight: bolder;
-  color: white;display
+  color: white;
+  cursor: pointer;
 }
 
 .section-links {
