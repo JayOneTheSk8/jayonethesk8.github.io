@@ -61,11 +61,11 @@ function closeDropdown(e) {
 
 function changeInfo(e) {
   let direction = e.deltaX > 0 ? 'right' : 'left';
-  // if (direction === 'left') {
-  //
-  // } else {
-  //
-  // }
+  if (direction === 'right') {
+    switchRight();
+  } else {
+    switchLeft();
+  }
 }
 
 function changeTab(e) {
@@ -124,6 +124,94 @@ function switchInfo(e) {
       return;
     case 'to-contact':
       alterHtml(contactTitle, contactPara);
+      return;
+    default:
+      return null;
+  }
+}
+
+function switchLeft() {
+  switch (title.html()) {
+    case "HOME":
+      return null;
+    case "ABOUT ME":
+      window.setTimeout(() => {
+        alterHtml(contactTitle, contactPara);
+        checkButton(contact);
+        radioButtons.show();
+      }, 500);
+      return;
+    case "SKILLS":
+      window.setTimeout(() => {
+        alterHtml(aboutMeTitle, aboutMePara);
+        checkButton(about);
+        radioButtons.show();
+      }, 500);
+      return;
+    case "PORTFOLIO":
+      window.setTimeout(() => {
+        alterHtml(skillsTitle, skillsPara);
+        checkButton(skills);
+        radioButtons.show();
+      }, 500);
+      return;
+    case "EDUCATION":
+      window.setTimeout(() => {
+        alterHtml(portfolioTitle, portfolioPara);
+        checkButton(portfolio);
+        radioButtons.show();
+      }, 500);
+      return;
+    case "CONTACT":
+      window.setTimeout(() => {
+        alterHtml(educationTitle, educationPara);
+        checkButton(education);
+        radioButtons.show();
+      }, 500);
+      return;
+    default:
+      return null;
+  }
+}
+
+function switchRight() {
+  switch (title.html()) {
+    case "HOME":
+      return null;
+    case "ABOUT ME":
+      window.setTimeout(() => {
+        alterHtml(skillsTitle, skillsPara);
+        checkButton(skills);
+        radioButtons.show();
+      }, 500);
+      return;
+    case "SKILLS":
+      window.setTimeout(() => {
+        alterHtml(portfolioTitle, portfolioPara);
+        checkButton(portfolio);
+        radioButtons.show();
+      }, 500);
+      return;
+    case "PORTFOLIO":
+      window.setTimeout(() => {
+        alterHtml(educationTitle, educationPara);
+        checkButton(education);
+        radioButtons.show();
+      }, 500);
+      return;
+    case "EDUCATION":
+      window.setTimeout(() => {
+        alterHtml(contactTitle, contactPara);
+        checkButton(contact);
+        radioButtons.show();
+      }, 500);
+      return;
+    case "CONTACT":
+      window.setTimeout(() => {
+        alterHtml(aboutMeTitle, aboutMePara);
+        checkButton(about);
+        radioButtons.show();
+      }, 500);
       return;
     default:
       return null;
