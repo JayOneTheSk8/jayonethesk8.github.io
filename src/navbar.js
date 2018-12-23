@@ -72,26 +72,32 @@ function changeTab(e) {
   switch (e.target.innerText) {
     case "HOME":
       alterHtml(aboutMeTitle, aboutMePara);
+      radioButtons.hide();
       return;
     case "ABOUT":
       alterHtml(aboutMeTitle, aboutMePara);
       checkButton(about);
+      radioButtons.show();
       return;
     case "SKILLS":
       alterHtml(skillsTitle, skillsPara);
       checkButton(skills);
+      radioButtons.show();
       return;
     case "PORTFOLIO":
       alterHtml(portfolioTitle, portfolioPara);
       checkButton(portfolio);
+      radioButtons.show();
       return;
     case "EDUCATION":
       alterHtml(educationTitle, educationPara);
       checkButton(education);
+      radioButtons.show();
       return;
     case "CONTACT":
       alterHtml(contactTitle, contactPara);
       checkButton(contact);
+      radioButtons.show();
       return;
     default:
       return null;
@@ -151,9 +157,9 @@ document.addEventListener("DOMContentLoaded", (e) => {
   education = $j('#to-education');
   contact = $j('#to-contact');
   links = $j('.section-link, .dropdown-link');
-  links.on('click', changeTab);
   title = $j('.info-header');
   paragraph = $j('.info-paragraph');
+  links.on('click', changeTab);
   radioButtons.on('click', switchInfo);
   overlay.on('click', closeDropdown);
   infoScreens.on('click', closeDropdown);
