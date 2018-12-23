@@ -71,7 +71,7 @@ function changeInfo(e) {
 function changeTab(e) {
   switch (e.target.innerText) {
     case "HOME":
-      alterHtml(aboutMeTitle, aboutMePara);
+      alterHtml(homeTitle, homePara);
       radioButtons.hide();
       return;
     case "ABOUT":
