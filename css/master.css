@@ -106,6 +106,10 @@ body {
   right: 150%;
 } */
 
+.home-links {
+  margin-top: 46px;
+}
+
 .info {
   margin: 0px 1.5%;
   width: 90%;
@@ -128,7 +132,7 @@ body {
 
 .info-paragraph {
   font-size: 21px;
-  margin-top: 46px;
+  margin-top: 15px;
   position: relative;
   right: 0%;
   transition: right 0.5s;
@@ -200,7 +204,28 @@ body {
   display: inline-block;
 }
 
+/* SKILLS */
+
+.edu {
+  margin-top: 10px;
+}
+
+.skill {
+  width: 100px;
+  margin: 7px 13px;
+  fill: #eee7da;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 @media screen and (max-width: 1600px) {
+  .home-links {
+    margin-top: 15px;
+  }
+
   .profile-picture {
     z-index: 1;
     width: 560px;
@@ -236,28 +261,6 @@ body {
     position: relative;
     top: 0px;
   }
-}
-
-/* EXPERIENCE */
-
-.css3 {
-  width: 200px;
-}
-
-.edu {
-  margin-top: 10px;
-}
-
-.experience-point {
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
-  width: 200px;
-}
-
-.figlabel {
-  margin-top: 11px;
-  font-size: 25px;
 }
 
 @media screen and (max-width: 1260px) {

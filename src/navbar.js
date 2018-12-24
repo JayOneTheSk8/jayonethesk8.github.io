@@ -43,12 +43,12 @@ function alterHtml(passedTitle, passedPara, type = undefined) {
   title.html(passedTitle);
   paragraph.html(passedPara);
   resetParagraph();
-  // debugger
   radioButtons.show();
   switch (type) {
     case "HOME":
       textarea.addClass('home-area');
       info.addClass('reverse-info');
+      paragraph.addClass('home-links');
       radioButtons.hide();
       if (navbar.width() < 1260) {
         profilePic.hide();
@@ -102,7 +102,7 @@ function changeTab(e) {
       checkButton(about);
       return;
     case "SKILLS":
-      alterHtml(skillsTitle, skillsPara);
+      alterHtml(skillsTitle, skillsPara, "SKILLS");
       checkButton(skills);
       return;
     case "PORTFOLIO":
@@ -139,7 +139,7 @@ function switchInfo(e) {
       alterHtml(aboutMeTitle, aboutMePara);
       return;
     case 'to-skills':
-      alterHtml(skillsTitle, skillsPara);
+      alterHtml(skillsTitle, skillsPara, "SKILLS");
       return;
     case 'to-portfolio':
       alterHtml(portfolioTitle, portfolioPara);
@@ -173,7 +173,7 @@ function switchLeft() {
       return;
     case "PORTFOLIO":
       window.setTimeout(() => {
-        alterHtml(skillsTitle, skillsPara);
+        alterHtml(skillsTitle, skillsPara, "SKILLS");
         checkButton(skills);
       }, 500);
       return;
@@ -200,7 +200,7 @@ function switchRight() {
       return null;
     case "ABOUT ME":
       window.setTimeout(() => {
-        alterHtml(skillsTitle, skillsPara);
+        alterHtml(skillsTitle, skillsPara, "SKILLS");
         checkButton(skills);
       }, 500);
       return;
@@ -270,7 +270,8 @@ document.addEventListener("DOMContentLoaded", (e) => {
   overlay.on('click', closeDropdown);
   infoScreens.on('click', closeDropdown);
   hamburger.on('click', toggleDropdown);
-  alterHtml(homeTitle, homePara, "HOME"); //TURN ON IN PRODUCTION
+  // alterHtml(homeTitle, homePara, "HOME"); //TURN ON IN PRODUCTION
+  // alterHtml(educationTitle, educationPara, "EDUCATION");
   changeNavbar();
   goLinks = $j('.inline');
   goLinks.on('click', changeTab);
