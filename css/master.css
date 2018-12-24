@@ -178,7 +178,7 @@ body {
 .reverse-info {
   flex-direction: row-reverse;
   position: relative;
-  top: -10px;
+  top: -9px;
 }
 
 .switch-info {
@@ -236,6 +236,28 @@ body {
     position: relative;
     top: 0px;
   }
+}
+
+/* EXPERIENCE */
+
+.css3 {
+  width: 200px;
+}
+
+.edu {
+  margin-top: 10px;
+}
+
+.experience-point {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  width: 200px;
+}
+
+.figlabel {
+  margin-top: 11px;
+  font-size: 25px;
 }
 
 @media screen and (max-width: 1260px) {

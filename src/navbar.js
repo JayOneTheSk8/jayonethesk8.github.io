@@ -11,7 +11,7 @@ Array.prototype.rotate = function(times = 1) {
 
 let miniBar, navbar, hamburger, dropdownMenu, overlay, about, skills, portfolio,
   education, contact, title, paragraph, lastChecked, homeLinks, aboutLinks, skillsLinks,
-  portfolioLinks, educationLinks, contactLinks, goLinks;
+  portfolioLinks, educationLinks, contactLinks, goLinks, textarea;
 
 let dropdown = 'closed';
 let transitioning = 'false';
@@ -29,7 +29,7 @@ const portfolioTitle = "PORTFOLIO";
 const portfolioPara = "Portfolio Info Here";
 
 const educationTitle = "EDUCATION";
-const educationPara = "Education Info Here";
+const educationPara = "<article class='experience-point'><figcaption class='figlabel'>CSS3</figcaption><figure class='css3'><svg viewBox='0 0 128 128'><path fill='#1572B6' d='M19.67 26l8.069 90.493 36.206 10.05 36.307-10.063 8.078-90.48h-88.66zm69.21 50.488l-2.35 21.892.009 1.875-22.539 6.295v.001l-.018.015-22.719-6.225-1.537-17.341h11.141l.79 8.766 12.347 3.295-.004.015v-.032l12.394-3.495 1.308-14.549h-25.907000000000004l-.222-2.355-.506-5.647-.265-2.998h27.886000000000003l1.014-11h-42.473l-.223-2.589-.506-6.03-.265-3.381h55.597l-.267 3.334-2.685 30.154'></path><path fill='#1572B6' d='M89 14.374l-7.149-8.374h7.149v-5h-16v4.363l8.39 7.637h-8.39v5h16zM70 14.374l-6.807-8.374h6.807v-5h-15v4.363l7.733 7.637h-7.733v5h15zM52 13h-8v-7h8v-5h-14v17h14z'></path></svg></figure></article>";
 
 const contactTitle = "CONTACT";
 const contactPara = "Contact Info Here";
@@ -39,16 +39,37 @@ const flip = (show, hide) => {
   hide.hide();
 };
 
-function alterHtml(passedTitle, passedPara) {
+function alterHtml(passedTitle, passedPara, type = undefined) {
   title.html(passedTitle);
   paragraph.html(passedPara);
+  resetParagraph();
+  profilePic.show();
+  switch (type) {
+    case "HOME":
+      textarea.addClass('home-area');
+      info.addClass('reverse-info');
+      if (navbar.width() < 1260) {
+        profilePic.hide();
+      }
+      return;
+    case "EDUCATION":
+      paragraph.addClass('edu');
+      return;
+    default:
+      return null;
+  }
 }
 
 function changeNavbar(e) {
+  // debugger;
   if (navbar.width() < 800 && navbar.nodes[0].className !== "hidden") {
     flip(miniBar, navbar);
   } else if (miniBar.width() > 800) {
     flip(navbar, miniBar);
+  }
+  profilePic.show();
+  if (navbar.width() < 1260 && title.nodes[0].innerText === "JUSTIN COX") {
+    profilePic.hide();
   }
 }
 
@@ -71,8 +92,7 @@ function changeInfo(e) {
 function changeTab(e) {
   switch (e.target.innerText) {
     case "HOME":
-      alterHtml(homeTitle, homePara);
-      info.addClass('reverse-info');
+      alterHtml(homeTitle, homePara, "HOME");
       radioButtons.hide();
       goLinks = $j('.inline');
       goLinks.on('click', changeTab);
@@ -80,31 +100,26 @@ function changeTab(e) {
     case "ABOUT":
       alterHtml(aboutMeTitle, aboutMePara);
       checkButton(about);
-      info.removeClass('reverse-info');
       radioButtons.show();
       return;
     case "SKILLS":
       alterHtml(skillsTitle, skillsPara);
       checkButton(skills);
-      info.removeClass('reverse-info');
       radioButtons.show();
       return;
     case "PORTFOLIO":
       alterHtml(portfolioTitle, portfolioPara);
       checkButton(portfolio);
-      info.removeClass('reverse-info');
       radioButtons.show();
       return;
     case "EDUCATION":
-      alterHtml(educationTitle, educationPara);
+      alterHtml(educationTitle, educationPara, "EDUCATION");
       checkButton(education);
-      info.removeClass('reverse-info');
       radioButtons.show();
       return;
     case "CONTACT":
       alterHtml(contactTitle, contactPara);
       checkButton(contact);
-      info.removeClass('reverse-info');
       radioButtons.show();
       return;
     default:
@@ -114,6 +129,13 @@ function changeTab(e) {
 
 function checkButton(button) {
   button.nodes[0].checked = true;
+}
+
+function resetParagraph() {
+  paragraph.nodes[0].className = "info-paragraph";
+  info.removeClass('reverse-info');
+  textarea.nodes[0].className = 'paragraph';
+  profilePic.show();
 }
 
 function switchInfo(e) {
@@ -128,7 +150,7 @@ function switchInfo(e) {
       alterHtml(portfolioTitle, portfolioPara);
       return;
     case 'to-education':
-      alterHtml(educationTitle, educationPara);
+      alterHtml(educationTitle, educationPara, "EDUCATION");
       return;
     case 'to-contact':
       alterHtml(contactTitle, contactPara);
@@ -172,7 +194,7 @@ function switchLeft() {
       return;
     case "CONTACT":
       window.setTimeout(() => {
-        alterHtml(educationTitle, educationPara);
+        alterHtml(educationTitle, educationPara, "EDUCATION");
         checkButton(education);
         radioButtons.show();
       }, 500);
@@ -202,7 +224,7 @@ function switchRight() {
       return;
     case "PORTFOLIO":
       window.setTimeout(() => {
-        alterHtml(educationTitle, educationPara);
+        alterHtml(educationTitle, educationPara, "EDUCATION");
         checkButton(education);
         radioButtons.show();
       }, 500);
@@ -255,20 +277,28 @@ document.addEventListener("DOMContentLoaded", (e) => {
   links = $j('.section-link, .dropdown-link');
   info = $j('.info');
   title = $j('.info-header');
+  textarea = $j('.paragraph');
   paragraph = $j('.info-paragraph');
+  profilePic = $j('.profile-picture');
   links.on('click', changeTab);
   radioButtons.on('click', switchInfo);
   overlay.on('click', closeDropdown);
   infoScreens.on('click', closeDropdown);
   hamburger.on('click', toggleDropdown);
-  if (navbar.width() < 800) {
-    flip(miniBar, navbar);
-  } else {
-    flip(navbar, miniBar);
-  }
-  alterHtml(homeTitle, homePara);
+  // if (navbar.width() < 800) {
+  //   flip(miniBar, navbar);
+  // } else {
+  //   flip(navbar, miniBar);
+  // }
+  // if (navbar.width() < 1260) {
+  //   profilePic.hide();
+  // } else {
+  //   profilePic.show();
+  // }
+  alterHtml(homeTitle, homePara, "HOME"); //TURN ON IN PRODUCTION
   info.addClass('reverse-info');
   radioButtons.hide();
+  changeNavbar();
   goLinks = $j('.inline');
   goLinks.on('click', changeTab);
 });
