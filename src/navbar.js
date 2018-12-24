@@ -76,6 +76,9 @@ function closeDropdown(e) {
 }
 
 function changeInfo(e) {
+  if (e.deltaY > 15 || e.deltaY < -15) {
+    return;
+  }
   let direction = e.deltaX > 0 ? 'right' : 'left';
   if (direction === 'right') {
     switchRight();
