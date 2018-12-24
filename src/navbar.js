@@ -9,6 +9,13 @@ Array.prototype.rotate = function(times = 1) {
   return that;
 };
 
+const HOME = "HOME";
+const ABOUT = "ABOUT";
+const SKILLS = "SKILLS";
+const PORTFOLIO = "PORTFOLIO";
+const EDUCATION = "EDUCATION";
+const CONTACT = "CONTACT";
+
 let miniBar, navbar, hamburger, dropdownMenu, overlay, about, skills, portfolio,
   education, contact, title, paragraph, lastChecked, homeLinks, aboutLinks, skillsLinks,
   portfolioLinks, educationLinks, contactLinks, goLinks, textarea, homeTitle, homePara,
@@ -29,7 +36,7 @@ function alterHtml(passedTitle, passedPara, type = undefined) {
   resetParagraph();
   radioButtons.show();
   switch (type) {
-    case "HOME":
+    case HOME:
       textarea.addClass('home-area');
       info.addClass('reverse-info');
       paragraph.addClass('home-links');
@@ -37,6 +44,9 @@ function alterHtml(passedTitle, passedPara, type = undefined) {
       if (navbar.width() < 1260) {
         profilePic.hide();
       }
+      return;
+    case SKILLS:
+      title.addClass('skills-header');
       return;
     case "EDUCATION":
       paragraph.addClass('edu');
@@ -77,7 +87,7 @@ function changeInfo(e) {
 function changeTab(e) {
   switch (e.target.innerText) {
     case "HOME":
-      alterHtml(homeTitle, homePara, "HOME");
+      alterHtml(homeTitle, homePara, HOME);
       goLinks = $j('.inline');
       goLinks.on('click', changeTab);
       return;
@@ -86,7 +96,7 @@ function changeTab(e) {
       checkButton(about);
       return;
     case "SKILLS":
-      alterHtml(skillsTitle, skillsPara, "SKILLS");
+      alterHtml(skillsTitle, skillsPara, SKILLS);
       checkButton(skills);
       return;
     case "PORTFOLIO":
@@ -94,7 +104,7 @@ function changeTab(e) {
       checkButton(portfolio);
       return;
     case "EDUCATION":
-      alterHtml(educationTitle, educationPara, "EDUCATION");
+      alterHtml(educationTitle, educationPara, EDUCATION);
       checkButton(education);
       return;
     case "CONTACT":
@@ -112,6 +122,7 @@ function checkButton(button) {
 
 function resetParagraph() {
   paragraph.nodes[0].className = "info-paragraph";
+  title.nodes[0].className = "info-header"
   info.removeClass('reverse-info');
   textarea.nodes[0].className = 'paragraph';
   profilePic.show();
@@ -123,13 +134,13 @@ function switchInfo(e) {
       alterHtml(aboutTitle, aboutPara);
       return;
     case 'to-skills':
-      alterHtml(skillsTitle, skillsPara, "SKILLS");
+      alterHtml(skillsTitle, skillsPara, SKILLS);
       return;
     case 'to-portfolio':
       alterHtml(portfolioTitle, portfolioPara);
       return;
     case 'to-education':
-      alterHtml(educationTitle, educationPara, "EDUCATION");
+      alterHtml(educationTitle, educationPara, EDUCATION);
       return;
     case 'to-contact':
       alterHtml(contactTitle, contactPara);
@@ -141,8 +152,6 @@ function switchInfo(e) {
 
 function switchLeft() {
   switch (title.html()) {
-    case "HOME":
-      return null;
     case "ABOUT ME":
       window.setTimeout(() => {
         alterHtml(contactTitle, contactPara);
@@ -157,7 +166,7 @@ function switchLeft() {
       return;
     case "PORTFOLIO":
       window.setTimeout(() => {
-        alterHtml(skillsTitle, skillsPara, "SKILLS");
+        alterHtml(skillsTitle, skillsPara, SKILLS);
         checkButton(skills);
       }, 500);
       return;
@@ -169,7 +178,7 @@ function switchLeft() {
       return;
     case "CONTACT":
       window.setTimeout(() => {
-        alterHtml(educationTitle, educationPara, "EDUCATION");
+        alterHtml(educationTitle, educationPara, EDUCATION);
         checkButton(education);
       }, 500);
       return;
@@ -180,11 +189,9 @@ function switchLeft() {
 
 function switchRight() {
   switch (title.html()) {
-    case "HOME":
-      return null;
     case "ABOUT ME":
       window.setTimeout(() => {
-        alterHtml(skillsTitle, skillsPara, "SKILLS");
+        alterHtml(skillsTitle, skillsPara, SKILLS);
         checkButton(skills);
       }, 500);
       return;
@@ -196,7 +203,7 @@ function switchRight() {
       return;
     case "PORTFOLIO":
       window.setTimeout(() => {
-        alterHtml(educationTitle, educationPara, "EDUCATION");
+        alterHtml(educationTitle, educationPara, EDUCATION);
         checkButton(education);
       }, 500);
       return;
@@ -268,8 +275,8 @@ document.addEventListener("DOMContentLoaded", (e) => {
   contactTitle = $j('#contact-title').html();
   contactPara = $j('#contact-paragraph').html();
   infoSections.remove();
-  // alterHtml(homeTitle, homePara, "HOME"); //TURN ON IN PRODUCTION
-  alterHtml(skillsTitle, skillsPara, "SKILLS");
+  // alterHtml(homeTitle, homePara, HOME); //TURN ON IN PRODUCTION
+  alterHtml(skillsTitle, skillsPara, SKILLS);
   changeNavbar();
   goLinks = $j('.inline');
   goLinks.on('click', changeTab);

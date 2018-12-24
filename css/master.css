@@ -219,6 +219,20 @@ body {
 .skill-tags {
   display: flex;
   flex-wrap: wrap;
+  position: relative;
+  right: 20px;
+}
+
+.skill-title {
+  cursor: default;
+}
+
+.titled {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  bottom: 20px;
 }
 
 @media screen and (max-width: 1600px) {
@@ -264,13 +278,6 @@ body {
 }
 
 @media screen and (max-width: 1260px) {
-  .paragraph {
-    width: 90%;
-    margin-left: 40px;
-    padding-top: 20px;
-    color: #eee7da;
-  }
-
   .home-area {
     display: flex;
     flex-direction: column;
@@ -285,6 +292,13 @@ body {
     transition: right 0.5;
   }
 
+  .paragraph {
+    width: 90%;
+    margin-left: 40px;
+    padding-top: 20px;
+    color: #eee7da;
+  }
+
   .profile-picture {
     z-index: 1;
     width: 100px;
@@ -296,6 +310,18 @@ body {
     position: absolute;
     left: 42%;
     top: 67%;
+  }
+
+  .skills-header {
+    text-align: center;
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+    right: 0px;
   }
 
   .to-list {
