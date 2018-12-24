@@ -279,7 +279,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
   contactPara = $j('#contact-paragraph').html();
   infoSections.remove();
   alterHtml(homeTitle, homePara, HOME);
-  // alterHtml(skillsTitle, skillsPara, SKILLS);
+  alterHtml(contactTitle, contactPara, SKILLS);
   changeNavbar();
   goLinks = $j('.inline');
   goLinks.on('click', changeTab);

@@ -274,6 +274,13 @@ body {
 }
 
 
+/* CONTACT */
+.contact-logo {
+  fill: #eee7da;
+  width: 75px;
+}
+
+
 /* WINDOW CHANGES */
 
 @media screen and (max-width: 1600px) {
