@@ -178,7 +178,7 @@ body {
 .reverse-info {
   flex-direction: row-reverse;
   position: relative;
-  top: -9px;
+  top: -10px;
 }
 
 .switch-info {

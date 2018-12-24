@@ -43,11 +43,13 @@ function alterHtml(passedTitle, passedPara, type = undefined) {
   title.html(passedTitle);
   paragraph.html(passedPara);
   resetParagraph();
-  profilePic.show();
+  // debugger
+  radioButtons.show();
   switch (type) {
     case "HOME":
       textarea.addClass('home-area');
       info.addClass('reverse-info');
+      radioButtons.hide();
       if (navbar.width() < 1260) {
         profilePic.hide();
       }
@@ -61,7 +63,6 @@ function alterHtml(passedTitle, passedPara, type = undefined) {
 }
 
 function changeNavbar(e) {
-  // debugger;
   if (navbar.width() < 800 && navbar.nodes[0].className !== "hidden") {
     flip(miniBar, navbar);
   } else if (miniBar.width() > 800) {
@@ -93,34 +94,28 @@ function changeTab(e) {
   switch (e.target.innerText) {
     case "HOME":
       alterHtml(homeTitle, homePara, "HOME");
-      radioButtons.hide();
       goLinks = $j('.inline');
       goLinks.on('click', changeTab);
       return;
     case "ABOUT":
       alterHtml(aboutMeTitle, aboutMePara);
       checkButton(about);
-      radioButtons.show();
       return;
     case "SKILLS":
       alterHtml(skillsTitle, skillsPara);
       checkButton(skills);
-      radioButtons.show();
       return;
     case "PORTFOLIO":
       alterHtml(portfolioTitle, portfolioPara);
       checkButton(portfolio);
-      radioButtons.show();
       return;
     case "EDUCATION":
       alterHtml(educationTitle, educationPara, "EDUCATION");
       checkButton(education);
-      radioButtons.show();
       return;
     case "CONTACT":
       alterHtml(contactTitle, contactPara);
       checkButton(contact);
-      radioButtons.show();
       return;
     default:
       return null;
@@ -168,35 +163,30 @@ function switchLeft() {
       window.setTimeout(() => {
         alterHtml(contactTitle, contactPara);
         checkButton(contact);
-        radioButtons.show();
       }, 500);
       return;
     case "SKILLS":
       window.setTimeout(() => {
         alterHtml(aboutMeTitle, aboutMePara);
         checkButton(about);
-        radioButtons.show();
       }, 500);
       return;
     case "PORTFOLIO":
       window.setTimeout(() => {
         alterHtml(skillsTitle, skillsPara);
         checkButton(skills);
-        radioButtons.show();
       }, 500);
       return;
     case "EDUCATION":
       window.setTimeout(() => {
         alterHtml(portfolioTitle, portfolioPara);
         checkButton(portfolio);
-        radioButtons.show();
       }, 500);
       return;
     case "CONTACT":
       window.setTimeout(() => {
         alterHtml(educationTitle, educationPara, "EDUCATION");
         checkButton(education);
-        radioButtons.show();
       }, 500);
       return;
     default:
@@ -212,35 +202,30 @@ function switchRight() {
       window.setTimeout(() => {
         alterHtml(skillsTitle, skillsPara);
         checkButton(skills);
-        radioButtons.show();
       }, 500);
       return;
     case "SKILLS":
       window.setTimeout(() => {
         alterHtml(portfolioTitle, portfolioPara);
         checkButton(portfolio);
-        radioButtons.show();
       }, 500);
       return;
     case "PORTFOLIO":
       window.setTimeout(() => {
         alterHtml(educationTitle, educationPara, "EDUCATION");
         checkButton(education);
-        radioButtons.show();
       }, 500);
       return;
     case "EDUCATION":
       window.setTimeout(() => {
         alterHtml(contactTitle, contactPara);
         checkButton(contact);
-        radioButtons.show();
       }, 500);
       return;
     case "CONTACT":
       window.setTimeout(() => {
         alterHtml(aboutMeTitle, aboutMePara);
         checkButton(about);
-        radioButtons.show();
       }, 500);
       return;
     default:
@@ -285,19 +270,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
   overlay.on('click', closeDropdown);
   infoScreens.on('click', closeDropdown);
   hamburger.on('click', toggleDropdown);
-  // if (navbar.width() < 800) {
-  //   flip(miniBar, navbar);
-  // } else {
-  //   flip(navbar, miniBar);
-  // }
-  // if (navbar.width() < 1260) {
-  //   profilePic.hide();
-  // } else {
-  //   profilePic.show();
-  // }
   alterHtml(homeTitle, homePara, "HOME"); //TURN ON IN PRODUCTION
-  info.addClass('reverse-info');
-  radioButtons.hide();
   changeNavbar();
   goLinks = $j('.inline');
   goLinks.on('click', changeTab);
