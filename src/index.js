@@ -278,8 +278,8 @@ document.addEventListener("DOMContentLoaded", (e) => {
   contactTitle = $j('#contact-title').html();
   contactPara = $j('#contact-paragraph').html();
   infoSections.remove();
-  // alterHtml(homeTitle, homePara, HOME); //TURN ON IN PRODUCTION
-  alterHtml(skillsTitle, skillsPara, SKILLS);
+  alterHtml(homeTitle, homePara, HOME);
+  // alterHtml(skillsTitle, skillsPara, SKILLS);
   changeNavbar();
   goLinks = $j('.inline');
   goLinks.on('click', changeTab);
