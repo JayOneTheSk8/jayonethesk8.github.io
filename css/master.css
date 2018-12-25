@@ -172,7 +172,7 @@ body {
 
 /* HOME */
 .home-links {
-  margin-top: 46px;
+  margin-top: 15px;
 }
 
 .reverse-info {
@@ -275,6 +275,12 @@ body {
 
 
 /* CONTACT */
+.contact-links {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .contact-logo {
   fill: #eee7da;
   width: 75px;
@@ -284,10 +290,7 @@ body {
 /* WINDOW CHANGES */
 
 @media screen and (max-width: 1600px) {
-  .home-links {
-    margin-top: 15px;
-  }
-
+  
   .profile-picture {
     z-index: 1;
     width: 525px;
@@ -352,7 +355,7 @@ body {
     margin-left: 40px;
     position: absolute;
     left: 42%;
-    top: 67%;
+    top: 70%;
   }
 
   .skills-header {
