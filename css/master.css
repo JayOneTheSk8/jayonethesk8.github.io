@@ -341,6 +341,7 @@ body {
 
 /* PORTFOLIO */
 .picked {
+  height: 90px;
   width: 104px;
   opacity: 1;
   cursor: pointer;
@@ -349,7 +350,13 @@ body {
   padding: 10px;
 }
 
+.portfolio {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
 .project-icon {
+  height: 90px;
   width: 104px;
   opacity: 0.4;
   cursor: pointer;
@@ -364,7 +371,8 @@ body {
 
 .project-select {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 .selected-project {

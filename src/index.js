@@ -20,7 +20,8 @@ let miniBar, navbar, hamburger, dropdownMenu, overlay, about, skills, portfolio,
   education, contact, title, paragraph, lastChecked, homeLinks, aboutLinks, skillsLinks,
   portfolioLinks, educationLinks, contactLinks, goLinks, textarea, homeTitle, homePara,
   aboutTitle, aboutPara, skillsTitle, skillsPara, portfolioTitle, portfolioPara,
-  educationTitle, educationPara, contactTitle, contactPara, modal, resumePic, projectIcons, pickedProject;
+  educationTitle, educationPara, contactTitle, contactPara, modal, resumePic, projectIcons,
+  pickedProject, highlightedProject, u2b, wordsAboveWater, projectBackground;
 
 let dropdown = 'closed';
 let resumeFullScreen = false;
@@ -65,9 +66,15 @@ function alterHtml(passedTitle, passedPara, type = undefined) {
       paragraph.addClass('edu');
       return;
     case PORTFOLIO:
+      paragraph.addClass('portfolio');
       projectIcons = $j('.project-icon');
       projectIcons.on('click', switchProject);
       projectIcons.nodes[0].className = "picked";
+      highlightedProject = $j('.highlighted');
+      u2b = $j('#u2b-background').html();
+      wordsAboveWater = $j('#wordsAboveWater-background').html();
+      highlightedProject.empty();
+      highlightedProject.html(u2b);
       return;
     case CONTACT:
       paragraph.addClass('contact');
@@ -233,9 +240,10 @@ function switchLeft() {
   }
 }
 
-function selectProject(jaysQueryObject) {
+function selectProject(jaysQueryObject, background) {
   jaysQueryObject.removeClass('project-icon');
   jaysQueryObject.addClass('picked');
+  highlightedProject.html(background);
 }
 
 function switchProject(e) {
@@ -245,14 +253,16 @@ function switchProject(e) {
   switch (e.target.id) {
     case "u2b":
       pickedProject = $j('#u2b');
+      projectBackground = u2b;
       break;
     case "wordsAboveWater":
       pickedProject = $j('#wordsAboveWater');
+      projectBackground = wordsAboveWater;
       break;
     default:
       return null;
   }
-  selectProject(pickedProject);
+  selectProject(pickedProject, projectBackground);
 }
 
 function switchRight() {
