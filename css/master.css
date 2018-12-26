@@ -383,9 +383,27 @@ body {
   justify-content: space-around;
 }
 
-.selected-project {
+/* .selected-project {
   opacity: 0.3;
   width: 400px;
+} */
+
+#u2b-background {
+  background-image: url('../images/u2bicon.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.3;
+  width: 400px;
+  height: 350px;
+}
+
+#wordsAboveWater-background {
+  background-image: url('../images/wordsAboveWater.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.3;
+  width: 400px;
+  height: 350px;
 }
 
 /* WINDOW CHANGES */

@@ -71,8 +71,8 @@ function alterHtml(passedTitle, passedPara, type = undefined) {
       projectIcons.on('click', switchProject);
       projectIcons.nodes[0].className = "picked";
       highlightedProject = $j('.highlighted');
-      u2b = $j('#u2b-background').html();
-      wordsAboveWater = $j('#wordsAboveWater-background').html();
+      u2b = $j('#u2b-info').html();
+      wordsAboveWater = $j('#wordsAboveWater-info').html();
       highlightedProject.empty();
       highlightedProject.html(u2b);
       return;
