@@ -340,6 +340,12 @@ body {
 }
 
 /* PORTFOLIO */
+.highlighted {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .picked {
   height: 90px;
   width: 104px;
@@ -353,6 +359,8 @@ body {
 .portfolio {
   display: flex;
   flex-direction: column-reverse;
+  justify-content: space-between;
+  height: 455px;
 }
 
 .project-icon {
