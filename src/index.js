@@ -20,7 +20,7 @@ let miniBar, navbar, hamburger, dropdownMenu, overlay, about, skills, portfolio,
   education, contact, title, paragraph, lastChecked, homeLinks, aboutLinks, skillsLinks,
   portfolioLinks, educationLinks, contactLinks, goLinks, textarea, homeTitle, homePara,
   aboutTitle, aboutPara, skillsTitle, skillsPara, portfolioTitle, portfolioPara,
-  educationTitle, educationPara, contactTitle, contactPara, modal, resumePic, projectIcons;
+  educationTitle, educationPara, contactTitle, contactPara, modal, resumePic, projectIcons, pickedProject;
 
 let dropdown = 'closed';
 let resumeFullScreen = false;
@@ -67,6 +67,7 @@ function alterHtml(passedTitle, passedPara, type = undefined) {
     case PORTFOLIO:
       projectIcons = $j('.project-icon');
       projectIcons.on('click', switchProject);
+      projectIcons.nodes[0].className = "picked";
       return;
     case CONTACT:
       paragraph.addClass('contact');
@@ -241,7 +242,6 @@ function switchProject(e) {
   projectIcons.removeClass('picked');
   projectIcons.removeClass('project-icon');
   projectIcons.addClass('project-icon');
-  let pickedProject;
   switch (e.target.id) {
     case "u2b":
       pickedProject = $j('#u2b');
