@@ -231,6 +231,18 @@ function switchRight() {
   }
 }
 
+function showResume() {
+  window.removeEventListener("wheel", changeInfo);
+  modal.show();
+  resumeFullScreen = true;
+}
+
+function hideResume() {
+  window.addEventListener("wheel", changeInfo);
+  modal.hide();
+  resumeFullScreen = false;
+}
+
 function toggleDropdown(e) {
   if (dropdown === 'closed') {
     dropdownMenu.removeClass('hidden');
@@ -243,18 +255,25 @@ function toggleDropdown(e) {
 
 function toggleFullView(e) {
   if (resumeFullScreen) {
-    window.addEventListener("wheel", changeInfo);
-    modal.hide();
-    resumeFullScreen = false;
+    hideResume();
   } else {
-    window.removeEventListener("wheel", changeInfo);
-    modal.show();
-    resumeFullScreen = true;
+    showResume();
+  }
+}
+
+function toggleResume(e) {
+  switch (e.keyCode) {
+    case expression:
+
+      break;
+    default:
+
   }
 }
 
 window.addEventListener("wheel", changeInfo);
 window.addEventListener("resize", changeNavbar);
+window.addEventListener("keydown", toggleResume);
 
 document.addEventListener("DOMContentLoaded", (e) => {
   miniBar = $j('.navbar-reduced');
