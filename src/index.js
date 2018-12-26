@@ -25,7 +25,7 @@ let miniBar, navbar, hamburger, dropdownMenu, overlay, about, skills, portfolio,
 let dropdown = 'closed';
 let resumeFullScreen = false;
 let transitioning = 'false';
-let resumePdf = `<embed class="full-resume" src="src/Justin Cox Programming Resume.pdf" width="65%" type="application/pdf">`;
+let resumePdf = `<embed class="full-resume" src="src/Justin Cox Programming Resume.pdf" width="55%" type="application/pdf">`;
 let toggleButtons = { 'ctrl': false, 'shift': false, 'F': false };
 
 const flip = (show, hide) => {
@@ -301,7 +301,7 @@ function toggleResume(e) {
   } else if (e.keyCode === 70) {
     toggleButtons['F'] = true;
   }
-  if (allTrue(toggleButtons)) {
+  if (allTrue(toggleButtons) &&  title.nodes[0].innerText === "CONTACT") {
     if (resumeFullScreen) {
       hideResume();
     } else {
