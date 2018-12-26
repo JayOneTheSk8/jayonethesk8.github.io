@@ -68,6 +68,10 @@ function alterHtml(passedTitle, passedPara, type = undefined) {
       paragraph.addClass('contact');
       resumePic = $j('.resume-picture');
       resumePic.on('click', toggleFullView);
+      if (navbar.width() < 1260) {
+        profilePic.hide();
+      }
+      return;
     default:
       return null;
   }
