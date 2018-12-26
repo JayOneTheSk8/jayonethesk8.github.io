@@ -339,6 +339,16 @@ body {
   font-size: 17px;
 }
 
+/* PORTFOLIO */
+.project-icon {
+  width: 104px;
+}
+
+.project-select {
+  display: flex;
+  flex-direction: column;
+}
+
 /* WINDOW CHANGES */
 
 @media screen and (max-width: 1600px) {
