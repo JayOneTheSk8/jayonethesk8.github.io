@@ -340,13 +340,36 @@ body {
 }
 
 /* PORTFOLIO */
+.picked {
+  width: 104px;
+  opacity: 1;
+  cursor: pointer;
+  border: 3px solid green;
+  border-radius: 6px;
+  padding: 10px;
+}
+
 .project-icon {
   width: 104px;
+  opacity: 0.4;
+  cursor: pointer;
+  border: 3px solid #2b462b;
+  border-radius: 6px;
+  padding: 10px;
+}
+
+.project-icon:hover {
+  opacity: 1;
 }
 
 .project-select {
   display: flex;
   flex-direction: column;
+}
+
+.selected-project {
+  opacity: 0.3;
+  width: 400px;
 }
 
 /* WINDOW CHANGES */

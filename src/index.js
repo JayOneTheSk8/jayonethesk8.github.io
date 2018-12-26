@@ -20,7 +20,7 @@ let miniBar, navbar, hamburger, dropdownMenu, overlay, about, skills, portfolio,
   education, contact, title, paragraph, lastChecked, homeLinks, aboutLinks, skillsLinks,
   portfolioLinks, educationLinks, contactLinks, goLinks, textarea, homeTitle, homePara,
   aboutTitle, aboutPara, skillsTitle, skillsPara, portfolioTitle, portfolioPara,
-  educationTitle, educationPara, contactTitle, contactPara, modal, resumePic;
+  educationTitle, educationPara, contactTitle, contactPara, modal, resumePic, projectIcons;
 
 let dropdown = 'closed';
 let resumeFullScreen = false;
@@ -63,6 +63,10 @@ function alterHtml(passedTitle, passedPara, type = undefined) {
       return;
     case EDUCATION:
       paragraph.addClass('edu');
+      return;
+    case PORTFOLIO:
+      projectIcons = $j('.project-icon');
+      projectIcons.on('click', switchProject);
       return;
     case CONTACT:
       paragraph.addClass('contact');
@@ -124,7 +128,7 @@ function changeTab(e) {
       checkButton(skills);
       return;
     case "PORTFOLIO":
-      alterHtml(portfolioTitle, portfolioPara);
+      alterHtml(portfolioTitle, portfolioPara, PORTFOLIO);
       checkButton(portfolio);
       return;
     case "EDUCATION":
@@ -178,7 +182,7 @@ function switchInfo(e) {
       alterHtml(skillsTitle, skillsPara, SKILLS);
       return;
     case 'to-portfolio':
-      alterHtml(portfolioTitle, portfolioPara);
+      alterHtml(portfolioTitle, portfolioPara, PORTFOLIO);
       return;
     case 'to-education':
       alterHtml(educationTitle, educationPara, EDUCATION);
@@ -213,7 +217,7 @@ function switchLeft() {
       return;
     case "EDUCATION":
       window.setTimeout(() => {
-        alterHtml(portfolioTitle, portfolioPara);
+        alterHtml(portfolioTitle, portfolioPara, PORTFOLIO);
         checkButton(portfolio);
       }, 500);
       return;
@@ -228,6 +232,29 @@ function switchLeft() {
   }
 }
 
+function selectProject(jaysQueryObject) {
+  jaysQueryObject.removeClass('project-icon');
+  jaysQueryObject.addClass('picked');
+}
+
+function switchProject(e) {
+  projectIcons.removeClass('picked');
+  projectIcons.removeClass('project-icon');
+  projectIcons.addClass('project-icon');
+  let pickedProject;
+  switch (e.target.id) {
+    case "u2b":
+      pickedProject = $j('#u2b');
+      break;
+    case "wordsAboveWater":
+      pickedProject = $j('#wordsAboveWater');
+      break;
+    default:
+      return null;
+  }
+  selectProject(pickedProject);
+}
+
 function switchRight() {
   switch (title.html()) {
     case "ABOUT ME":
@@ -238,7 +265,7 @@ function switchRight() {
       return;
     case "SKILLS":
       window.setTimeout(() => {
-        alterHtml(portfolioTitle, portfolioPara);
+        alterHtml(portfolioTitle, portfolioPara, PORTFOLIO);
         checkButton(portfolio);
       }, 500);
       return;
