@@ -75,6 +75,9 @@ function alterHtml(passedTitle, passedPara, type = undefined) {
       wordsAboveWater = $j('#wordsAboveWater-info').html();
       highlightedProject.empty();
       highlightedProject.html(u2b);
+      if (navbar.width() < 1260) {
+        profilePic.hide();
+      }
       return;
     case CONTACT:
       paragraph.addClass('contact');
@@ -96,7 +99,7 @@ function changeNavbar(e) {
     flip(navbar, miniBar);
   }
   profilePic.show();
-  if (navbar.width() < 1260 && (title.nodes[0].innerText === "JUSTIN COX" || title.nodes[0].innerText === "CONTACT")) {
+  if (navbar.width() < 1260 && (title.nodes[0].innerText === "JUSTIN COX" || title.nodes[0].innerText === "CONTACT" || title.nodes[0].innerText === "PORTFOLIO")) {
     profilePic.hide();
   }
 }
