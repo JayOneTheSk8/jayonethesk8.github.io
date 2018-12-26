@@ -299,6 +299,20 @@ body {
   border-radius: 8px;
 }
 
+.full-resume {
+  height: 100vh;
+}
+
+.modal {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+}
+
 .resume {
   display: flex;
   align-items: center;

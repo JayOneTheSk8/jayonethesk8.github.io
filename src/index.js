@@ -20,10 +20,12 @@ let miniBar, navbar, hamburger, dropdownMenu, overlay, about, skills, portfolio,
   education, contact, title, paragraph, lastChecked, homeLinks, aboutLinks, skillsLinks,
   portfolioLinks, educationLinks, contactLinks, goLinks, textarea, homeTitle, homePara,
   aboutTitle, aboutPara, skillsTitle, skillsPara, portfolioTitle, portfolioPara,
-  educationTitle, educationPara, contactTitle, contactPara, resume;
+  educationTitle, educationPara, contactTitle, contactPara, modal;
 
 let dropdown = 'closed';
+let resumeFullScreen = false;
 let transitioning = 'false';
+let resumePdf = `<embed class="full-resume" src="src/Justin Cox Programming Resume.pdf" width="65%" type="application/pdf">`;
 
 const flip = (show, hide) => {
   show.show();
@@ -239,6 +241,18 @@ function toggleDropdown(e) {
   }
 }
 
+function toggleFullView(e) {
+  if (resumeFullScreen) {
+    window.addEventListener("wheel", changeInfo);
+    modal.hide();
+    resumeFullScreen = false;
+  } else {
+    window.removeEventListener("wheel", changeInfo);
+    modal.show();
+    resumeFullScreen = true;
+  }
+}
+
 window.addEventListener("wheel", changeInfo);
 window.addEventListener("resize", changeNavbar);
 
@@ -261,6 +275,8 @@ document.addEventListener("DOMContentLoaded", (e) => {
   textarea = $j('.paragraph');
   paragraph = $j('.info-paragraph');
   profilePic = $j('.profile-picture');
+  modal = $j('.modal');
+  modal.on('click', toggleFullView);
   links.on('click', changeTab);
   radioButtons.on('click', switchInfo);
   overlay.on('click', closeDropdown);
@@ -280,6 +296,8 @@ document.addEventListener("DOMContentLoaded", (e) => {
   contactTitle = $j('#contact-title').html();
   contactPara = $j('#contact-paragraph').html();
   infoSections.remove();
+  modal.html(resumePdf);
+  modal.hide();
   alterHtml(homeTitle, homePara, HOME);
   alterHtml(contactTitle, contactPara, CONTACT);
   changeNavbar();
