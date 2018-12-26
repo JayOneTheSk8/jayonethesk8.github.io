@@ -293,6 +293,12 @@ body {
   width: 75px;
 }
 
+.download-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .download-resume {
   background: #178417;
   padding: 10px;
@@ -324,6 +330,13 @@ body {
   height: 345px;
   margin-right: 40px;
   cursor: pointer;
+}
+
+
+.toggle-info {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 17px;
 }
 
 /* WINDOW CHANGES */

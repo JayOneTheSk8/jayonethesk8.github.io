@@ -26,11 +26,22 @@ let dropdown = 'closed';
 let resumeFullScreen = false;
 let transitioning = 'false';
 let resumePdf = `<embed class="full-resume" src="src/Justin Cox Programming Resume.pdf" width="65%" type="application/pdf">`;
+let toggleButtons = { 'ctrl': false, 'shift': false, 'F': false };
 
 const flip = (show, hide) => {
   show.show();
   hide.hide();
 };
+
+function allTrue(object) {
+  const array = Object.values(object);
+  for (let i = 0; i < array.length; i++) {
+    if (!array[i]) {
+      return false;
+    }
+  }
+  return true;
+}
 
 function alterHtml(passedTitle, passedPara, type = undefined) {
   title.html(passedTitle);
@@ -67,7 +78,7 @@ function changeNavbar(e) {
     flip(navbar, miniBar);
   }
   profilePic.show();
-  if (navbar.width() < 1260 && title.nodes[0].innerText === "JUSTIN COX") {
+  if (navbar.width() < 1260 && (title.nodes[0].innerText === "JUSTIN COX" || title.nodes[0].innerText === "CONTACT")) {
     profilePic.hide();
   }
 }
@@ -133,6 +144,23 @@ function resetParagraph() {
   info.removeClass('reverse-info');
   textarea.nodes[0].className = 'paragraph';
   profilePic.show();
+}
+
+
+function removeButtons(e) {
+  switch (e.keyCode) {
+    case 16: // SHIFT
+      toggleButtons['shift'] = false;
+      return;
+    case 17: // CTRL
+      toggleButtons['ctrl'] = false;
+      return;
+    case 70: // F
+      toggleButtons['F'] = false;
+      return;
+    default:
+      return null;
+  }
 }
 
 function switchInfo(e) {
@@ -262,18 +290,26 @@ function toggleFullView(e) {
 }
 
 function toggleResume(e) {
-  switch (e.keyCode) {
-    case expression:
-
-      break;
-    default:
-
+  if (e.keyCode === 16) {
+    toggleButtons['shift'] = true;
+  } else if (e.keyCode === 17) {
+    toggleButtons['ctrl'] = true;
+  } else if (e.keyCode === 70) {
+    toggleButtons['F'] = true;
+  }
+  if (allTrue(toggleButtons)) {
+    if (resumeFullScreen) {
+      hideResume();
+    } else {
+      showResume();
+    }
   }
 }
 
 window.addEventListener("wheel", changeInfo);
 window.addEventListener("resize", changeNavbar);
 window.addEventListener("keydown", toggleResume);
+window.addEventListener("keyup", removeButtons);
 
 document.addEventListener("DOMContentLoaded", (e) => {
   miniBar = $j('.navbar-reduced');
