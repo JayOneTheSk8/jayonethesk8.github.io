@@ -360,7 +360,11 @@ body {
   display: flex;
   flex-direction: column-reverse;
   justify-content: space-between;
-  height: 455px;
+  height: 485px;
+}
+
+.project-desc {
+  text-align: center;
 }
 
 .project-icon {
@@ -377,34 +381,25 @@ body {
   opacity: 1;
 }
 
+.project-links {
+  margin: 5px 0px;
+}
+
+.project-link:hover {
+  text-decoration: underline;
+}
+
 .project-select {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
 
-/* .selected-project {
-  opacity: 0.3;
-  width: 400px;
-} */
-
-#u2b-background {
-  background-image: url('../images/u2bicon.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  opacity: 0.3;
-  width: 400px;
-  height: 350px;
+.selected-project {
+  width: 440px;
+  height: 250px;
 }
 
-#wordsAboveWater-background {
-  background-image: url('../images/wordsAboveWater.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  opacity: 0.3;
-  width: 400px;
-  height: 350px;
-}
 
 /* WINDOW CHANGES */
 
