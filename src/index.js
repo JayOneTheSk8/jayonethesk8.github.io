@@ -20,7 +20,7 @@ let miniBar, navbar, hamburger, dropdownMenu, overlay, about, skills, portfolio,
   education, contact, title, paragraph, lastChecked, homeLinks, aboutLinks, skillsLinks,
   portfolioLinks, educationLinks, contactLinks, goLinks, textarea, homeTitle, homePara,
   aboutTitle, aboutPara, skillsTitle, skillsPara, portfolioTitle, portfolioPara,
-  educationTitle, educationPara, contactTitle, contactPara;
+  educationTitle, educationPara, contactTitle, contactPara, resume;
 
 let dropdown = 'closed';
 let transitioning = 'false';
@@ -48,9 +48,11 @@ function alterHtml(passedTitle, passedPara, type = undefined) {
     case SKILLS:
       title.addClass('skills-header');
       return;
-    case "EDUCATION":
+    case EDUCATION:
       paragraph.addClass('edu');
       return;
+    case CONTACT:
+      paragraph.addClass('contact');
     default:
       return null;
   }
@@ -111,7 +113,7 @@ function changeTab(e) {
       checkButton(education);
       return;
     case "CONTACT":
-      alterHtml(contactTitle, contactPara);
+      alterHtml(contactTitle, contactPara, CONTACT);
       checkButton(contact);
       return;
     default:
@@ -146,7 +148,7 @@ function switchInfo(e) {
       alterHtml(educationTitle, educationPara, EDUCATION);
       return;
     case 'to-contact':
-      alterHtml(contactTitle, contactPara);
+      alterHtml(contactTitle, contactPara, CONTACT);
       return;
     default:
       return null;
@@ -157,7 +159,7 @@ function switchLeft() {
   switch (title.html()) {
     case "ABOUT ME":
       window.setTimeout(() => {
-        alterHtml(contactTitle, contactPara);
+        alterHtml(contactTitle, contactPara, CONTACT);
         checkButton(contact);
       }, 500);
       return;
@@ -212,7 +214,7 @@ function switchRight() {
       return;
     case "EDUCATION":
       window.setTimeout(() => {
-        alterHtml(contactTitle, contactPara);
+        alterHtml(contactTitle, contactPara, CONTACT);
         checkButton(contact);
       }, 500);
       return;
@@ -279,7 +281,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
   contactPara = $j('#contact-paragraph').html();
   infoSections.remove();
   alterHtml(homeTitle, homePara, HOME);
-  alterHtml(contactTitle, contactPara, SKILLS);
+  alterHtml(contactTitle, contactPara, CONTACT);
   changeNavbar();
   goLinks = $j('.inline');
   goLinks.on('click', changeTab);

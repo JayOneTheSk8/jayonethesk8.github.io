@@ -275,6 +275,13 @@ body {
 
 
 /* CONTACT */
+.contact {
+  height: 445px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .contact-links {
   display: flex;
   justify-content: space-around;
@@ -286,11 +293,29 @@ body {
   width: 75px;
 }
 
+.download-resume {
+  background: #178417;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.resume {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.resume-picture {
+  width: 260px;
+  height: 345px;
+  margin-right: 40px;
+  cursor: pointer;
+}
 
 /* WINDOW CHANGES */
 
 @media screen and (max-width: 1600px) {
-  
+
   .profile-picture {
     z-index: 1;
     width: 525px;
