@@ -20,7 +20,7 @@ let miniBar, navbar, hamburger, dropdownMenu, overlay, about, skills, portfolio,
   education, contact, title, paragraph, lastChecked, homeLinks, aboutLinks, skillsLinks,
   portfolioLinks, educationLinks, contactLinks, goLinks, textarea, homeTitle, homePara,
   aboutTitle, aboutPara, skillsTitle, skillsPara, portfolioTitle, portfolioPara,
-  educationTitle, educationPara, contactTitle, contactPara, modal;
+  educationTitle, educationPara, contactTitle, contactPara, modal, resumePic;
 
 let dropdown = 'closed';
 let resumeFullScreen = false;
@@ -66,6 +66,8 @@ function alterHtml(passedTitle, passedPara, type = undefined) {
       return;
     case CONTACT:
       paragraph.addClass('contact');
+      resumePic = $j('.resume-picture');
+      resumePic.on('click', toggleFullView);
     default:
       return null;
   }
@@ -358,7 +360,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
   modal.html(resumePdf);
   modal.hide();
   alterHtml(homeTitle, homePara, HOME);
-  alterHtml(contactTitle, contactPara, CONTACT);
   changeNavbar();
   goLinks = $j('.inline');
   goLinks.on('click', changeTab);
