@@ -290,6 +290,10 @@ function toggleFullView(e) {
 }
 
 function toggleResume(e) {
+  if (e.keyCode === 27 && resumeFullScreen) {
+    hideResume();
+    return;
+  }
   if (e.keyCode === 16) {
     toggleButtons['shift'] = true;
   } else if (e.keyCode === 17) {
