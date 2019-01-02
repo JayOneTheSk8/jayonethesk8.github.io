@@ -61,6 +61,9 @@ function alterHtml(passedTitle, passedPara, type = undefined) {
       return;
     case SKILLS:
       title.addClass('skills-header');
+      if (navbar.width() < 1260) {
+        profilePic.hide();
+      }
       return;
     case EDUCATION:
       paragraph.addClass('edu');
@@ -99,7 +102,7 @@ function changeNavbar(e) {
     flip(navbar, miniBar);
   }
   profilePic.show();
-  if (navbar.width() < 1260 && (title.nodes[0].innerText === "JUSTIN COX" || title.nodes[0].innerText === "CONTACT" || title.nodes[0].innerText === "PORTFOLIO")) {
+  if (navbar.width() < 1260 && (["JUSTIN COX", "CONTACT", "PORTFOLIO", "SKILLS"].includes(title.nodes[0].innerText))) {
     profilePic.hide();
   }
 }
