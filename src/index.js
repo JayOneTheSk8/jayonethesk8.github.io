@@ -1,4 +1,4 @@
-Array.prototype.rotate = function(times = 1) {
+Array.prototype.rotate = function (times = 1) {
   let element, array;
   let that = this;
   for (var i = 0; i < times; i++) {
@@ -9,25 +9,61 @@ Array.prototype.rotate = function(times = 1) {
   return that;
 };
 
-const HOME = "HOME";
-const ABOUT = "ABOUT";
-const SKILLS = "SKILLS";
-const PORTFOLIO = "PORTFOLIO";
-const EDUCATION = "EDUCATION";
-const CONTACT = "CONTACT";
+const HOME = 'HOME';
+const ABOUT = 'ABOUT';
+const SKILLS = 'SKILLS';
+const PORTFOLIO = 'PORTFOLIO';
+const EDUCATION = 'EDUCATION';
+const CONTACT = 'CONTACT';
 
-let miniBar, navbar, hamburger, dropdownMenu, overlay, about, skills, portfolio,
-  education, contact, title, paragraph, lastChecked, homeLinks, aboutLinks, skillsLinks,
-  portfolioLinks, educationLinks, contactLinks, goLinks, textarea, homeTitle, homePara,
-  aboutTitle, aboutPara, skillsTitle, skillsPara, portfolioTitle, portfolioPara,
-  educationTitle, educationPara, contactTitle, contactPara, modal, resumePic, projectIcons,
-  pickedProject, highlightedProject, u2b, wordsAboveWater, projectBackground;
+let miniBar,
+  navbar,
+  hamburger,
+  dropdownMenu,
+  overlay,
+  about,
+  skills,
+  portfolio,
+  education,
+  contact,
+  title,
+  paragraph,
+  lastChecked,
+  homeLinks,
+  aboutLinks,
+  skillsLinks,
+  portfolioLinks,
+  educationLinks,
+  contactLinks,
+  goLinks,
+  textarea,
+  homeTitle,
+  homePara,
+  aboutTitle,
+  aboutPara,
+  skillsTitle,
+  skillsPara,
+  portfolioTitle,
+  portfolioPara,
+  educationTitle,
+  educationPara,
+  contactTitle,
+  contactPara,
+  modal,
+  resumePic,
+  projectIcons,
+  pickedProject,
+  highlightedProject,
+  u2b,
+  wordsAboveWater,
+  equiBite,
+  projectBackground;
 
 let dropdown = 'closed';
 let resumeFullScreen = false;
 let transitioning = 'false';
 let resumePdf = `<embed class="full-resume" src="src/Justin Cox Programming Resume.pdf" width="55%" type="application/pdf">`;
-let toggleButtons = { 'ctrl': false, 'shift': false, 'F': false };
+let toggleButtons = { ctrl: false, shift: false, F: false };
 
 const flip = (show, hide) => {
   show.show();
@@ -72,10 +108,11 @@ function alterHtml(passedTitle, passedPara, type = undefined) {
       paragraph.addClass('portfolio');
       projectIcons = $j('.project-icon');
       projectIcons.on('click', switchProject);
-      projectIcons.nodes[0].className = "picked";
+      projectIcons.nodes[0].className = 'picked';
       highlightedProject = $j('.highlighted');
       u2b = $j('#u2b-info').html();
       wordsAboveWater = $j('#wordsAboveWater-info').html();
+      equiBite = $j('#equibite-info').html();
       highlightedProject.empty();
       highlightedProject.html(u2b);
       if (navbar.width() < 1260) {
@@ -96,21 +133,26 @@ function alterHtml(passedTitle, passedPara, type = undefined) {
 }
 
 function changeNavbar(e) {
-  if (navbar.width() < 800 && navbar.nodes[0].className !== "hidden") {
+  if (navbar.width() < 800 && navbar.nodes[0].className !== 'hidden') {
     flip(miniBar, navbar);
   } else if (miniBar.width() > 800) {
     flip(navbar, miniBar);
   }
   profilePic.show();
-  if (navbar.width() < 1260 && (["JUSTIN COX", "CONTACT", "PORTFOLIO", "SKILLS"].includes(title.nodes[0].innerText))) {
+  if (
+    navbar.width() < 1260 &&
+    ['JUSTIN COX', 'CONTACT', 'PORTFOLIO', 'SKILLS'].includes(
+      title.nodes[0].innerText
+    )
+  ) {
     profilePic.hide();
   }
 }
 
 function closeDropdown(e) {
-  if (dropdown == "open") {
+  if (dropdown == 'open') {
     dropdownMenu.addClass('hidden');
-    dropdown = "closed"
+    dropdown = 'closed';
   }
 }
 
@@ -128,28 +170,28 @@ function changeInfo(e) {
 
 function changeTab(e) {
   switch (e.target.innerText) {
-    case "HOME":
+    case 'HOME':
       alterHtml(homeTitle, homePara, HOME);
       goLinks = $j('.inline');
       goLinks.on('click', changeTab);
       return;
-    case "ABOUT":
+    case 'ABOUT':
       alterHtml(aboutTitle, aboutPara);
       checkButton(about);
       return;
-    case "SKILLS":
+    case 'SKILLS':
       alterHtml(skillsTitle, skillsPara, SKILLS);
       checkButton(skills);
       return;
-    case "PORTFOLIO":
+    case 'PORTFOLIO':
       alterHtml(portfolioTitle, portfolioPara, PORTFOLIO);
       checkButton(portfolio);
       return;
-    case "EDUCATION":
+    case 'EDUCATION':
       alterHtml(educationTitle, educationPara, EDUCATION);
       checkButton(education);
       return;
-    case "CONTACT":
+    case 'CONTACT':
       alterHtml(contactTitle, contactPara, CONTACT);
       checkButton(contact);
       return;
@@ -163,13 +205,12 @@ function checkButton(button) {
 }
 
 function resetParagraph() {
-  paragraph.nodes[0].className = "info-paragraph";
-  title.nodes[0].className = "info-header"
+  paragraph.nodes[0].className = 'info-paragraph';
+  title.nodes[0].className = 'info-header';
   info.removeClass('reverse-info');
   textarea.nodes[0].className = 'paragraph';
   profilePic.show();
 }
-
 
 function removeButtons(e) {
   switch (e.keyCode) {
@@ -211,31 +252,31 @@ function switchInfo(e) {
 
 function switchLeft() {
   switch (title.html()) {
-    case "ABOUT ME":
+    case 'ABOUT ME':
       window.setTimeout(() => {
         alterHtml(contactTitle, contactPara, CONTACT);
         checkButton(contact);
       }, 500);
       return;
-    case "SKILLS":
+    case 'SKILLS':
       window.setTimeout(() => {
         alterHtml(aboutTitle, aboutPara);
         checkButton(about);
       }, 500);
       return;
-    case "PORTFOLIO":
+    case 'PORTFOLIO':
       window.setTimeout(() => {
         alterHtml(skillsTitle, skillsPara, SKILLS);
         checkButton(skills);
       }, 500);
       return;
-    case "EDUCATION":
+    case 'EDUCATION':
       window.setTimeout(() => {
         alterHtml(portfolioTitle, portfolioPara, PORTFOLIO);
         checkButton(portfolio);
       }, 500);
       return;
-    case "CONTACT":
+    case 'CONTACT':
       window.setTimeout(() => {
         alterHtml(educationTitle, educationPara, EDUCATION);
         checkButton(education);
@@ -257,13 +298,17 @@ function switchProject(e) {
   projectIcons.removeClass('project-icon');
   projectIcons.addClass('project-icon');
   switch (e.target.id) {
-    case "u2b":
+    case 'u2b':
       pickedProject = $j('#u2b');
       projectBackground = u2b;
       break;
-    case "wordsAboveWater":
+    case 'wordsAboveWater':
       pickedProject = $j('#wordsAboveWater');
       projectBackground = wordsAboveWater;
+      break;
+    case 'equibite':
+      pickedProject = $j('#equibite');
+      projectBackground = equiBite;
       break;
     default:
       return null;
@@ -273,31 +318,31 @@ function switchProject(e) {
 
 function switchRight() {
   switch (title.html()) {
-    case "ABOUT ME":
+    case 'ABOUT ME':
       window.setTimeout(() => {
         alterHtml(skillsTitle, skillsPara, SKILLS);
         checkButton(skills);
       }, 500);
       return;
-    case "SKILLS":
+    case 'SKILLS':
       window.setTimeout(() => {
         alterHtml(portfolioTitle, portfolioPara, PORTFOLIO);
         checkButton(portfolio);
       }, 500);
       return;
-    case "PORTFOLIO":
+    case 'PORTFOLIO':
       window.setTimeout(() => {
         alterHtml(educationTitle, educationPara, EDUCATION);
         checkButton(education);
       }, 500);
       return;
-    case "EDUCATION":
+    case 'EDUCATION':
       window.setTimeout(() => {
         alterHtml(contactTitle, contactPara, CONTACT);
         checkButton(contact);
       }, 500);
       return;
-    case "CONTACT":
+    case 'CONTACT':
       window.setTimeout(() => {
         alterHtml(aboutTitle, aboutPara);
         checkButton(about);
@@ -309,13 +354,13 @@ function switchRight() {
 }
 
 function showResume() {
-  window.removeEventListener("wheel", changeInfo);
+  window.removeEventListener('wheel', changeInfo);
   modal.show();
   resumeFullScreen = true;
 }
 
 function hideResume() {
-  window.addEventListener("wheel", changeInfo);
+  window.addEventListener('wheel', changeInfo);
   modal.hide();
   resumeFullScreen = false;
 }
@@ -323,10 +368,10 @@ function hideResume() {
 function toggleDropdown(e) {
   if (dropdown === 'closed') {
     dropdownMenu.removeClass('hidden');
-    dropdown = "open";
+    dropdown = 'open';
   } else {
     dropdownMenu.addClass('hidden');
-    dropdown = "closed"
+    dropdown = 'closed';
   }
 }
 
@@ -350,7 +395,7 @@ function toggleResume(e) {
   } else if (e.keyCode === 70) {
     toggleButtons['F'] = true;
   }
-  if (allTrue(toggleButtons) &&  title.nodes[0].innerText === "CONTACT") {
+  if (allTrue(toggleButtons) && title.nodes[0].innerText === 'CONTACT') {
     if (resumeFullScreen) {
       hideResume();
     } else {
@@ -359,12 +404,12 @@ function toggleResume(e) {
   }
 }
 
-window.addEventListener("wheel", changeInfo);
-window.addEventListener("resize", changeNavbar);
-window.addEventListener("keydown", toggleResume);
-window.addEventListener("keyup", removeButtons);
+window.addEventListener('wheel', changeInfo);
+window.addEventListener('resize', changeNavbar);
+window.addEventListener('keydown', toggleResume);
+window.addEventListener('keyup', removeButtons);
 
-document.addEventListener("DOMContentLoaded", (e) => {
+document.addEventListener('DOMContentLoaded', (e) => {
   miniBar = $j('.navbar-reduced');
   navbar = $j('.navbar');
   hamburger = $j('.hamburger-icon');

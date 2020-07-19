@@ -169,7 +169,6 @@ body {
   top: 13px;
 }
 
-
 /* HOME */
 .home-links {
   margin-top: 15px;
@@ -206,7 +205,6 @@ body {
   padding: 5px;
   text-decoration: underline;
 }
-
 
 /* SKILLS */
 .skill {
@@ -273,7 +271,6 @@ body {
   bottom: 10px;
 }
 
-
 /* CONTACT */
 .contact {
   height: 445px;
@@ -332,7 +329,6 @@ body {
   cursor: pointer;
 }
 
-
 .toggle-info {
   margin-top: 15px;
   text-align: center;
@@ -379,6 +375,13 @@ body {
   padding: 10px;
 }
 
+#equibite {
+  height: 33px;
+  display: flex;
+  position: relative;
+  top: 33px;
+}
+
 .project-icon:hover {
   opacity: 1;
 }
@@ -402,11 +405,9 @@ body {
   height: 250px;
 }
 
-
 /* WINDOW CHANGES */
 
 @media screen and (max-width: 1600px) {
-
   .profile-picture {
     z-index: 1;
     width: 525px;
