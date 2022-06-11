@@ -57,6 +57,7 @@ let miniBar,
   u2b,
   wordsAboveWater,
   equiBite,
+  icarusWiki,
   projectBackground;
 
 let dropdown = 'closed';
@@ -113,6 +114,7 @@ function alterHtml(passedTitle, passedPara, type = undefined) {
       u2b = $j('#u2b-info').html();
       wordsAboveWater = $j('#wordsAboveWater-info').html();
       equiBite = $j('#equibite-info').html();
+      icarusWiki = $j('#icarusWiki-info').html();
       highlightedProject.empty();
       highlightedProject.html(u2b);
       if (navbar.width() < 1260) {
@@ -309,6 +311,10 @@ function switchProject(e) {
     case 'equibite':
       pickedProject = $j('#equibite');
       projectBackground = equiBite;
+      break;
+    case 'icarusWiki':
+      pickedProject = $j('#icarusWiki');
+      projectBackground = icarusWiki;
       break;
     default:
       return null;
