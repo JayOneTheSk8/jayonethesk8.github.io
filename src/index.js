@@ -54,7 +54,7 @@ let miniBar,
   projectIcons,
   pickedProject,
   highlightedProject,
-  u2b,
+  why,
   wordsAboveWater,
   equiBite,
   icarusWiki,
@@ -111,12 +111,12 @@ function alterHtml(passedTitle, passedPara, type = undefined) {
       projectIcons.on('click', switchProject);
       projectIcons.nodes[0].className = 'picked';
       highlightedProject = $j('.highlighted');
-      u2b = $j('#u2b-info').html();
+      why = $j('#why-info').html();
       wordsAboveWater = $j('#wordsAboveWater-info').html();
       equiBite = $j('#equibite-info').html();
       icarusWiki = $j('#icarusWiki-info').html();
       highlightedProject.empty();
-      highlightedProject.html(u2b);
+      highlightedProject.html(why);
       if (navbar.width() < 1260) {
         profilePic.hide();
       }
@@ -300,9 +300,9 @@ function switchProject(e) {
   projectIcons.removeClass('project-icon');
   projectIcons.addClass('project-icon');
   switch (e.target.id) {
-    case 'u2b':
-      pickedProject = $j('#u2b');
-      projectBackground = u2b;
+    case 'why':
+      pickedProject = $j('#why');
+      projectBackground = why;
       break;
     case 'wordsAboveWater':
       pickedProject = $j('#wordsAboveWater');
